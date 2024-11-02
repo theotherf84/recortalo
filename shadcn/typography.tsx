@@ -13,6 +13,10 @@ export const Heading3 = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadin
 	<h3 className={mergeClassNames("scroll-m-20 text-2xl font-semibold tracking-tight", className)} ref={reference} {...properties} />
 ))
 
+export const Heading4 = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadingElement>>(({ className, ...properties }, reference) => (
+	<h4 className={mergeClassNames("scroll-m-20 text-xl font-semibold tracking-tight", className)} ref={reference} {...properties} />
+))
+
 export const Paragraph = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>>(({ className, ...properties }, reference) => (
 	<p className={mergeClassNames("leading-6", className)} ref={reference} {...properties} />
 ))
