@@ -33,12 +33,12 @@ export const getPhoneData = (phoneNumber?: string): PhoneData => {
 	}
 }
 
-export const PhoneInput = ({ value: valueProp, defaultCountry = "US", className, id, required = true, ...properties }: PhoneInputProperties) => {
+export const PhoneInput = ({ className, defaultCountry = "AR", id, name, required, value: inputValue, ...properties }: PhoneInputProperties) => {
 	const asYouType = new AsYouType()
 
 	const inputReference = useRef<HTMLInputElement>(null)
 
-	const [value, handlers, history] = useStateHistory(valueProp)
+	const [value, handlers, history] = useStateHistory(inputValue)
 
 	if (value?.length) {
 		defaultCountry = parsePhoneNumberFromString(value)?.getPossibleCountries()[0] || defaultCountry
@@ -48,6 +48,8 @@ export const PhoneInput = ({ value: valueProp, defaultCountry = "US", className,
 	const [countryCode, setCountryCode] = useState<CountryCode>(defaultCountry)
 
 	const selectedCountry = countries.find((country) => country.iso2 === countryCode)
+
+	const pattern = "^(\+)?[0-9\s]*$"
 
 	const initializeDefaultValue = () => {
 		if (value) return value
@@ -163,12 +165,11 @@ export const PhoneInput = ({ value: valueProp, defaultCountry = "US", className,
 				aria-required={required}
 				defaultValue={initializeDefaultValue()}
 				id={id}
-				name="phone-number"
+				name={name}
 				onInput={handleOnInput}
 				onKeyDown={handleKeyDown}
 				onPaste={handleOnPaste}
-				pattern="^(\+)?[0-9\s]*$"
-				placeholder="Phone"
+				pattern={pattern}
 				ref={inputReference}
 				required={required}
 				type="text"
