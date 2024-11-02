@@ -51,14 +51,14 @@ export const AddEmployeeForm = () => {
 	}
 
 	return (
-		<form className="w-full" onSubmit={form.handleSubmit(handleOnSubmit)}>
-			<Card className="flex flex-col">
-				<CardHeader>
+		<Card className="flex flex-1 flex-col justify-between min-w-fit">
+			<CardHeader>
 					<CardTitle>{translation["forms.employees.add.title"]}</CardTitle>
 					<CardDescription>{translation["forms.employees.add.subtitle"]}</CardDescription>
 				</CardHeader>
-				<CardContent className="flex flex-col gap-4">
+				<CardContent>
 					<Form {...form}>
+					<form className="flex flex-1 flex-col gap-4" onSubmit={form.handleSubmit(handleOnSubmit)}>
 						<div className="flex flex-col gap-2">
 							<FormField
 								control={form.control}
@@ -171,12 +171,12 @@ export const AddEmployeeForm = () => {
 							</Button>
 							<FormDescription>Add links to your website, blog, or social media profiles.</FormDescription>
 						</div>
+						</form>
 					</Form>
 				</CardContent>
 				<CardFooter>
 					<SubmitButton>Save</SubmitButton>
 				</CardFooter>
 			</Card>
-		</form>
 	)
 }

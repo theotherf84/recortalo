@@ -10,8 +10,8 @@ export const EmployeesTableContainer = async () => {
 	const employees = await getEmployees()
 
 	return (
-		<Card className="w-full">
-			<CardHeader className="px-6">
+		<Card className="flex flex-1 flex-col">
+			<CardHeader>
 				<CardTitle>{translation["tables.employees.title"]}</CardTitle>
 				<CardDescription>{translation["tables.employees.description"]}</CardDescription>
 			</CardHeader>

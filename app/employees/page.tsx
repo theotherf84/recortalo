@@ -2,11 +2,9 @@ import { AddEmployeeFormContainer } from "components/employees/add-form/add-form
 import { EmployeesTableContainer } from "components/employees/table/table-container"
 
 const Page = () => (
-	<div className="flex flex-col gap-6 md:container md:mx-auto p-6">
-		<div className="flex flex-1 flex-col items-center justify-center gap-6">
+	<div className="flex flex-1 flex-col gap-8">
 			<AddEmployeeFormContainer />
 			<EmployeesTableContainer />
-		</div>
 	</div>
 )
 

@@ -6,10 +6,10 @@ import type { ComponentPropsWithoutRef, Dispatch, InputHTMLAttributes, ReactNode
 export type CommandDialogProperties = DialogProps
 
 export interface ContentSheetProperties {
-	callToAction?: string
 	children: ReactNode
 	subtitle?: string
-	title?: string
+	title: string
+	trigger: string
 }
 
 export type Country = (typeof countries)[number]

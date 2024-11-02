@@ -6,7 +6,7 @@ import { Button } from "shadcn/button"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "shadcn/sheet"
 import type { ContentSheetProperties } from "types/components"
 
-export const ContentSheet = ({ callToAction, children, subtitle, title, ...properties }: ContentSheetProperties) => {
+export const ContentSheet = ({ children, subtitle, title, trigger, ...properties }: ContentSheetProperties) => {
 	const [isOpen, setIsOpen] = useState(false)
 
 	const handleOnSheetClose = () => setIsOpen(false)
@@ -14,7 +14,7 @@ export const ContentSheet = ({ callToAction, children, subtitle, title, ...prope
 	return (
 		<Sheet open={isOpen} onOpenChange={setIsOpen}>
 			<SheetTrigger asChild>
-				<Button variant="secondary">{callToAction}</Button>
+				<Button>{trigger}</Button>
 			</SheetTrigger>
 			<SheetContent className="flex flex-col gap-6 w-full md:w-auto">
 				<SheetHeader className="py-4">
