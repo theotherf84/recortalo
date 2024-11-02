@@ -3,8 +3,8 @@ import { EmployeesTableContainer } from "components/employees/table/table-contai
 
 const Page = () => (
 	<div className="flex flex-1 flex-col gap-8">
-			<AddEmployeeFormContainer />
-			<EmployeesTableContainer />
+		<AddEmployeeFormContainer />
+		<EmployeesTableContainer />
 	</div>
 )
 

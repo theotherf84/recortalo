@@ -49,7 +49,7 @@ export const PhoneInput = ({ className, defaultCountry = "AR", id, name, require
 
 	const selectedCountry = countries.find((country) => country.iso2 === countryCode)
 
-	const pattern = "^(\+)?[0-9\s]*$"
+	const pattern = "^(+)?[0-9s]*$"
 
 	const initializeDefaultValue = () => {
 		if (value) return value

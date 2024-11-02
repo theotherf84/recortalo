@@ -3,8 +3,8 @@ import { ClientsTableContainer } from "components/clients/table/table-container"
 
 const Page = () => (
 	<div className="flex flex-1 flex-col gap-8">
-			<AddClientFormContainer />
-			<ClientsTableContainer />
+		<AddClientFormContainer />
+		<ClientsTableContainer />
 	</div>
 )
 

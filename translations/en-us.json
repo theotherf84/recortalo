@@ -19,7 +19,7 @@
 	"forms.products.add.description": "Create and manage your products.",
 	"forms.products.add.title": "Products",
 	"forms.subcategories.add.title": "Add a subcategory",
-	"forms.subcategories.add.description": "Update your subcategories list by adding a new one.",	
+	"forms.subcategories.add.description": "Update your subcategories list by adding a new one.",
 	"forms.updatePassword.description": "Enter your new password",
 	"forms.updatePassword.button.submit": "Update password",
 	"forms.updatePassword.title": "Update password",

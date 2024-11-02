@@ -11,7 +11,7 @@ export const QuickAddOrderFormContainer = async () => {
 
 	return (
 		<ContentSheet
-		subtitle={translation["forms.orders.quickAdd.sheet.description"]}
+			subtitle={translation["forms.orders.quickAdd.sheet.description"]}
 			title={translation["forms.orders.quickAdd.sheet.title"]}
 			trigger={translation["forms.orders.quickAdd.sheet.button.trigger"]}
 		>

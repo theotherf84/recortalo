@@ -5,11 +5,11 @@ import { SubcategoriesTableContainer } from "components/subcategories/table/tabl
 
 const Page = () => (
 	<div className="flex flex-1 flex-col gap-8">
-			<AddCategoryForm />
-			<CategoriesTableContainer />
-			<AddSubcategoryContainer />
-			<SubcategoriesTableContainer />
-		</div>
+		<AddCategoryForm />
+		<CategoriesTableContainer />
+		<AddSubcategoryContainer />
+		<SubcategoriesTableContainer />
+	</div>
 )
 
 export default Page

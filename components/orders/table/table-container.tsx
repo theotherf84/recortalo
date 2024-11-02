@@ -11,12 +11,12 @@ export const OrdersDataTableContainer = async () => {
 	const orders = await getOrdersWithEmployees()
 
 	return (
-			<Card className="flex flex-1 flex-col">
-				<CardHeader>
-					<CardTitle>{translation["tables.orders.title"]}</CardTitle>
-					<CardDescription>{translation["tables.orders.description"]}</CardDescription>
-				</CardHeader>
-				<CardContent>{orders.length ? <DataTable columns={columns} data={orders} /> : <DataTablePlaceholder />}</CardContent>
-			</Card>
+		<Card className="flex flex-1 flex-col">
+			<CardHeader>
+				<CardTitle>{translation["tables.orders.title"]}</CardTitle>
+				<CardDescription>{translation["tables.orders.description"]}</CardDescription>
+			</CardHeader>
+			<CardContent>{orders.length ? <DataTable columns={columns} data={orders} /> : <DataTablePlaceholder />}</CardContent>
+		</Card>
 	)
 }

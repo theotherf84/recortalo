@@ -37,11 +37,10 @@ export const AddSubcategoryForm = () => {
 		<Form {...form}>
 			<form className="flex flex-1" onSubmit={form.handleSubmit(handleOnSubmit)}>
 				<FormCard title={translation["forms.subcategories.add.title"]} description={translation["forms.subcategories.add.description"]}>
-				<CategorySelectFormField className="flex-1" control={form.control} label="Category" name="category" onValueChange={handleOnCategorySelect} placeholder="Category" />
+					<CategorySelectFormField className="flex-1" control={form.control} label="Category" name="category" onValueChange={handleOnCategorySelect} placeholder="Category" />
 					<InputFormField control={form.control} disabled={!category} label="Name" name="name" placeholder="Subcategory name" />
 				</FormCard>
 			</form>
 		</Form>
 	)
 }
-

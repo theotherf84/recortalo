@@ -7,7 +7,7 @@ export const AddSubcategoryContainer = async () => {
 
 	return (
 		<CategoryProvider value={categories}>
-				<AddSubcategoryForm />
+			<AddSubcategoryForm />
 		</CategoryProvider>
 	)
 }
