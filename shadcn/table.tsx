@@ -8,7 +8,7 @@ export const Table = forwardRef<HTMLTableElement, HTMLAttributes<HTMLTableElemen
 ))
 
 export const TableHeader = forwardRef<HTMLTableSectionElement, HTMLAttributes<HTMLTableSectionElement>>(({ className, ...properties }, reference) => (
-	<thead className={mergeClassNames("[&_tr]:border-0 bg-muted/100 rounded-lg", className)} ref={reference} {...properties} />
+	<thead className={mergeClassNames("[&_tr]:border-0 bg-muted/100", className)} ref={reference} {...properties} />
 ))
 
 export const TableBody = forwardRef<HTMLTableSectionElement, HTMLAttributes<HTMLTableSectionElement>>(({ className, ...properties }, reference) => (
@@ -24,7 +24,7 @@ export const TableRow = forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTable
 ))
 
 export const TableHead = forwardRef<HTMLTableCellElement, ThHTMLAttributes<HTMLTableCellElement>>(({ className, ...properties }, reference) => (
-	<th className={mergeClassNames("h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 rounded-lg", className)} ref={reference} {...properties} />
+	<th className={mergeClassNames("h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 first:rounded-l-lg last:rounded-r-lg", className)} ref={reference} {...properties} />
 ))
 
 export const TableCell = forwardRef<HTMLTableCellElement, TdHTMLAttributes<HTMLTableCellElement>>(({ className, ...properties }, reference) => (
