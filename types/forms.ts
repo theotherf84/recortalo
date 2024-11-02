@@ -2,6 +2,8 @@ import type { formSchema as AddClientFormSchema } from "components/clients/add-f
 import type { formSchema as AddEmployeeFormSchema } from "components/employees/add-form/add-form-schema"
 import type { formSchema as QuickAddOrderFormSchema } from "components/orders/quick-add-form/quick-add-form-schema"
 import type { formSchema as AddProductFormSchema } from "components/products/add-form/add-form-schema"
+import type { formSchema as AddCategoryFormSchema } from "components/categories/add-form/add-form-schema"
+import type { formSchema as AddSubcategoryFormSchema } from "components/subcategories/add-form/add-form-schema"
 import type { InputHTMLAttributes } from "react"
 import type { Category, Employee, Subcategory } from "types/tables"
 import type * as zod from "zod"
@@ -45,7 +47,11 @@ export type AddEmployeeFormFieldValues = zod.infer<typeof AddEmployeeFormSchema>
 // biome-ignore lint/suspicious/noEmptyInterface: <explanation>
 export interface AddEmployeeFormProperties {}
 
+export type AddCategoryFormFieldValues = zod.infer<typeof AddCategoryFormSchema>
+
 export type AddProductFormFieldValues = zod.infer<typeof AddProductFormSchema>
+
+export type AddSubcategoryFormFieldValues = zod.infer<typeof AddSubcategoryFormSchema>
 
 export interface QuickAddOrderFormProperties extends FormOnSheetProperties {
 	categories: Category[]

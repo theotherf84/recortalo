@@ -4,7 +4,7 @@ import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessa
 import { Input } from "shadcn/input"
 import type { FormFieldProperties } from "types/forms"
 
-export const InputFormField = ({ className, control, description, label, name = "", placeholder, ...properties }: FormFieldProperties) => (
+export const InputFormField = ({ className, control, description, label, name = "", ...properties }: FormFieldProperties) => (
 	<FormField
 		control={control}
 		name={name}
@@ -12,7 +12,7 @@ export const InputFormField = ({ className, control, description, label, name = 
 			<FormItem className={className}>
 				{label && <FormLabel>{label}</FormLabel>}
 				<FormControl>
-					<Input placeholder={placeholder} {...field} />
+					<Input {...field} {...properties} />
 				</FormControl>
 				{description && <FormDescription>{description}</FormDescription>}
 				<FormMessage />

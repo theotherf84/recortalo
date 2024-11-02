@@ -5,10 +5,11 @@ import { TableName } from "enumerations/table-name"
 import { createSupabaseClient } from "helpers/supabase"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
+import type { AddCategoryFormFieldValues } from "types/forms"
 
-export const action = async (formData: FormData) => {
+export const action = async (values: AddCategoryFormFieldValues) => {
 	const validation = formSchema.safeParse({
-		name: formData.get("name"),
+		...values,
 	})
 
 	if (validation.error)

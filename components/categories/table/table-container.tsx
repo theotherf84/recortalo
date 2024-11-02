@@ -10,8 +10,8 @@ export const CategoriesTableContainer = async () => {
 	const translations = await getTranslation()
 
 	return (
-		<Card className="w-full">
-			<CardHeader className="px-6">
+		<Card className="flex flex-1 flex-col">
+			<CardHeader>
 				<CardTitle>{translations["tables.categories.title"]}</CardTitle>
 				<CardDescription>{translations["tables.categories.description"]}</CardDescription>
 			</CardHeader>

@@ -4,7 +4,7 @@ import type { ReactNode } from "react"
 const Layout = ({ children }: { children: ReactNode }) => (
 	<>
 		<Header />
-		<main className="h-screen py-6">{children}</main>
+		<main className="flex flex-1 flex-col gap-6 p-6">{children}</main>
 	</>
 )
 

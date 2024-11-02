@@ -17,7 +17,7 @@ import type { AddProductFormFieldValues } from "types/forms"
 export const AddProductForm = () => {
 	const translation = useContext(TranslationContext)
 
-	const [selectedCategory, setSelectedCategory] = useState<number>()
+	const [category, setCategory] = useState<number>()
 
 	const defaultValues: Partial<AddProductFormFieldValues> = {}
 
@@ -28,7 +28,7 @@ export const AddProductForm = () => {
 	})
 
 	const handleOnCategorySelect = (value: string) => {
-		setSelectedCategory(+value)
+		setCategory(+value)
 	}
 
 	const handleOnSubmit: SubmitHandler<AddProductFormFieldValues> = async (data) => {
@@ -37,7 +37,7 @@ export const AddProductForm = () => {
 
 	return (
 		<Form {...form}>
-			<form className="w-full" onSubmit={form.handleSubmit(handleOnSubmit)}>
+			<form className="flex flex-1" onSubmit={form.handleSubmit(handleOnSubmit)}>
 				<FormCard title={translation["forms.products.add.title"]} description={translation["forms.products.add.description"]}>
 					<InputFormField control={form.control} label="Name" name="name" placeholder="Hair wax" />
 					<InputFormField control={form.control} label="Description" name="description" placeholder="The best hair wax money can buy" />
@@ -52,7 +52,7 @@ export const AddProductForm = () => {
 					/>
 					<div className="flex flex-1 gap-4">
 						<CategorySelectFormField className="flex-1" control={form.control} label="Category" name="category" onValueChange={handleOnCategorySelect} placeholder="Category" />
-						<SubcategorySelectFormField className="flex-1" category={selectedCategory} control={form.control} label="Subategory" name="subcategory" placeholder="Subcategory" />
+						<SubcategorySelectFormField className="flex-1" category={category} control={form.control} label="Subategory" name="subcategory" placeholder="Subcategory" />
 					</div>
 				</FormCard>
 			</form>

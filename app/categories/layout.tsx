@@ -5,8 +5,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
 	return (
 		<>
 			<Header />
-			<main className="grid gap-6 h-screen">{children}</main>
-		</>
+			<main className="flex flex-1 flex-col gap-6 p-6">{children}</main>
+			</>
 	)
 }
 

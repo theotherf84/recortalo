@@ -1,56 +1,47 @@
+"use client"
+
+import { zodResolver } from "@hookform/resolvers/zod"
 import { action } from "actions/add-subcategory"
-import { SubmitButton } from "components/submit-button"
-import { getCategories } from "services/categories"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "shadcn/card"
-import { Input } from "shadcn/input"
-import { Label } from "shadcn/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "shadcn/select"
-import type { Category } from "types/tables"
+import { FormCard } from "components/form-card"
+import { InputFormField } from "components/form-fields/input-form-field"
+import { formSchema } from "components/products/add-form/add-form-schema"
+import { TranslationContext } from "contexts/translation-context"
+import { useContext, useState } from "react"
+import { type SubmitHandler, useForm } from "react-hook-form"
+import { Form } from "shadcn/form"
+import type { AddSubcategoryFormFieldValues } from "types/forms"
+import { CategorySelectFormField } from "components/form-fields/category-select-form-field"
 
-export const AddSubcategoryForm = async () => {
-	const categories = (await getCategories()) as Category[]
+export const AddSubcategoryForm = () => {
+	const translation = useContext(TranslationContext)
 
-	const hasCategories = !!categories.length
+	const [category, setCategory] = useState<number>()
+
+	const defaultValues: Partial<AddSubcategoryFormFieldValues> = {}
+
+	const form = useForm<AddSubcategoryFormFieldValues>({
+		defaultValues,
+		mode: "onSubmit",
+		resolver: zodResolver(formSchema),
+	})
+
+	const handleOnCategorySelect = (value: string) => {
+		setCategory(+value)
+	}
+
+	const handleOnSubmit: SubmitHandler<AddSubcategoryFormFieldValues> = async (values) => {
+		action(values)
+	}
 
 	return (
-		<form action={action} className="w-full">
-			<Card className="flex flex-col gap-2">
-				<CardHeader>
-					<CardTitle>Add a subcategory</CardTitle>
-					<CardDescription>Used to subclassify orders in your store.</CardDescription>
-				</CardHeader>
-				<CardContent className="flex flex-col gap-4">
-					{hasCategories && (
-						<>
-							<div className="flex flex-col gap-2">
-								<Label htmlFor="category">Category</Label>
-								<Select name="category">
-									<SelectTrigger aria-label="Select category" id="category">
-										<SelectValue placeholder="Select category" />
-									</SelectTrigger>
-									<SelectContent>
-										{categories.map((category) => (
-											<SelectItem key={category.id} value={String(category.id)}>
-												{category.name}
-											</SelectItem>
-										))}
-									</SelectContent>
-								</Select>
-							</div>
-							<div className="flex flex-col gap-2">
-								<Input name="name" placeholder="Subcategory name" />
-								<p className="text-sm text-muted-foreground">The name of the subcategory that you want to add.</p>
-							</div>
-						</>
-					)}
-					{!hasCategories && <div className="text-muted-foreground flex flex-col items-center justify-center">We cannot find a root category to extend, try adding one above.</div>}
-				</CardContent>
-				{hasCategories && (
-					<CardFooter>
-						<SubmitButton>Save</SubmitButton>
-					</CardFooter>
-				)}
-			</Card>
-		</form>
+		<Form {...form}>
+			<form className="flex flex-1" onSubmit={form.handleSubmit(handleOnSubmit)}>
+				<FormCard title={translation["forms.subcategories.add.title"]} description={translation["forms.subcategories.add.description"]}>
+				<CategorySelectFormField className="flex-1" control={form.control} label="Category" name="category" onValueChange={handleOnCategorySelect} placeholder="Category" />
+					<InputFormField control={form.control} disabled={!category} label="Name" name="name" placeholder="Subcategory name" />
+				</FormCard>
+			</form>
+		</Form>
 	)
 }
+

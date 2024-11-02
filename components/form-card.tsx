@@ -3,12 +3,12 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import type { FormCardProperties } from "types/components"
 
 export const FormCard = ({ children, title, description }: FormCardProperties) => (
-	<Card className="flex flex-col">
+	<Card className="flex flex-1 flex-col justify-between min-w-fit">
 		<CardHeader>
 			<CardTitle>{title}</CardTitle>
 			<CardDescription>{description}</CardDescription>
 		</CardHeader>
-		<CardContent className="flex flex-col gap-4">{children}</CardContent>
+		<CardContent className="flex flex-1 flex-col gap-4">{children}</CardContent>
 		<CardFooter>
 			<SubmitButton>Save</SubmitButton>
 		</CardFooter>

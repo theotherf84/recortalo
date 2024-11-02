@@ -1,7 +1,7 @@
 import { AddProductContainer } from "components/products/add-form/add-form-container"
 
 const Page = () => (
-	<div className="container mmx-auto">
+	<div className="flex flex-1 flex-col gap-8">
 		<AddProductContainer />
 	</div>
 )
