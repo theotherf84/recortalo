@@ -7,7 +7,7 @@ const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(({ class
 ))
 
 const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(({ className, ...properties }, reference) => (
-	<div className={mergeClassNames("flex flex-col space-y-2 p-6", className)} ref={reference} {...properties} />
+	<div className={mergeClassNames("flex flex-col gap-2 p-6", className)} ref={reference} {...properties} />
 ))
 
 const CardTitle = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLHeadingElement>>(({ className, ...properties }, reference) => (

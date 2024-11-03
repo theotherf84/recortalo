@@ -2,28 +2,28 @@
 
 import { getPayloadConfigurationFromPayload } from "helpers/get-payload-configuration-from-payload"
 import { mergeClassNames } from "helpers/merge-class-names"
-import React from "react"
+import React, { type ComponentProps, createContext, type CSSProperties, forwardRef, useContext, useId, useMemo } from "react"
 import * as RechartsPrimitive from "recharts"
 import { type ChartConfiguration, type ChartContextProperties, themes } from "types/charts"
 
-const ChartContext = React.createContext<ChartContextProperties | null>(null)
+export const ChartContext = createContext<ChartContextProperties | null>(null)
 
-function useChart() {
-	const context = React.useContext(ChartContext)
+export const useChart = () => {
+	const context = useContext(ChartContext)
 
 	if (!context) throw new Error("useChart must be used within a <ChartContainer />")
 
 	return context
 }
 
-const ChartContainer = React.forwardRef<
+export const ChartContainer = forwardRef<
 	HTMLDivElement,
-	React.ComponentProps<"div"> & {
+	ComponentProps<"div"> & {
 		configuration: ChartConfiguration
-		children: React.ComponentProps<typeof RechartsPrimitive.ResponsiveContainer>["children"]
+		children: ComponentProps<typeof RechartsPrimitive.ResponsiveContainer>["children"]
 	}
 >(({ id, className, children, configuration, ...properties }, reference) => {
-	const uniqueIdentifier = React.useId()
+	const uniqueIdentifier = useId()
 	const chartIdentifier = `chart-${id || uniqueIdentifier.replace(/:/g, "")}`
 
 	return (
@@ -44,16 +44,14 @@ const ChartContainer = React.forwardRef<
 	)
 })
 
-ChartContainer.displayName = "Chart"
-
-const ChartStyle = ({ id, configuration }: { id: string; configuration: ChartConfiguration }) => {
+export const ChartStyle = ({ id, configuration }: { id: string; configuration: ChartConfiguration }) => {
 	const colorConfiguration = Object.entries(configuration).filter(([_, configuration]) => configuration.theme || configuration.color)
 
 	if (!colorConfiguration.length) return null
 
 	return (
 		<style
-			// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+			// biome-ignore lint/security/noDangerouslySetInnerHtml: noDangerouslySetInnerHtml
 			dangerouslySetInnerHTML={{
 				__html: Object.entries(themes)
 					.map(
@@ -74,12 +72,12 @@ ${colorConfiguration
 	)
 }
 
-const ChartTooltip = RechartsPrimitive.Tooltip
+export const ChartTooltip = RechartsPrimitive.Tooltip
 
-const ChartTooltipContent = React.forwardRef<
+export const ChartTooltipContent = forwardRef<
 	HTMLDivElement,
-	React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
-		React.ComponentProps<"div"> & {
+	ComponentProps<typeof RechartsPrimitive.Tooltip> &
+		ComponentProps<"div"> & {
 			hideLabel?: boolean
 			hideIndicator?: boolean
 			indicator?: "line" | "dot" | "dashed"
@@ -89,7 +87,7 @@ const ChartTooltipContent = React.forwardRef<
 >(({ active, payload, className, indicator = "dot", hideLabel = false, hideIndicator = false, label, labelFormatter, labelClassName, formatter, color, nameKey, labelKey }, reference) => {
 	const { configuration } = useChart()
 
-	const tooltipLabel = React.useMemo(() => {
+	const tooltipLabel = useMemo(() => {
 		if (hideLabel || !payload?.length) return null
 
 		const [item] = payload
@@ -144,7 +142,7 @@ const ChartTooltipContent = React.forwardRef<
 													{
 														"--color-bg": indicatorColor,
 														"--color-border": indicatorColor,
-													} as React.CSSProperties
+													} as CSSProperties
 												}
 											/>
 										)
@@ -166,13 +164,11 @@ const ChartTooltipContent = React.forwardRef<
 	)
 })
 
-ChartTooltipContent.displayName = "ChartTooltip"
+export const ChartLegend = RechartsPrimitive.Legend
 
-const ChartLegend = RechartsPrimitive.Legend
-
-const ChartLegendContent = React.forwardRef<
+export const ChartLegendContent = forwardRef<
 	HTMLDivElement,
-	React.ComponentProps<"div"> &
+	ComponentProps<"div"> &
 		Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
 			hideIcon?: boolean
 			nameKey?: string
@@ -207,7 +203,3 @@ const ChartLegendContent = React.forwardRef<
 		</div>
 	)
 })
-
-ChartLegendContent.displayName = "ChartLegend"
-
-export { ChartContainer, ChartTooltip, ChartTooltipContent, ChartLegend, ChartLegendContent, ChartStyle }

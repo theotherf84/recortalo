@@ -1,8 +1,8 @@
 "use client"
 
-import { getDaysOfWeek } from "helpers/get-days-of-week"
-import { Bar, BarChart, Label, Rectangle, ReferenceLine, XAxis } from "recharts"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "shadcn/chart"
+import { getDaysOfWeek } from "helpers/time"
+import { Bar, BarChart, LabelList, Rectangle, XAxis } from "recharts"
+import { ChartContainer } from "shadcn/chart"
 import type { Order } from "types/tables"
 
 const generateChartData = (orders: Order[]) => {
@@ -43,7 +43,7 @@ const tickFormatter = (value) => {
 	return `${date[0].toUpperCase()}${date.slice(1)}`
 }
 
-export const WeeklyRevenueCardBarChart = ({ orders }: { orders: Order[] }) => {
+export const RevenueCardBarChart = ({ orders }: { orders: Order[] }) => {
 	const chartData = generateChartData(orders)
 
 	return (
@@ -64,9 +64,10 @@ export const WeeklyRevenueCardBarChart = ({ orders }: { orders: Order[] }) => {
 				}}
 				data={chartData}
 			>
-				<Bar dataKey="amount" fill="hsl(var(--chart-1))" radius={5} fillOpacity={0.6} activeBar={<Rectangle fillOpacity={0.8} />} />
+				<Bar dataKey="amount" fill="hsl(var(--chart-1))" radius={5} fillOpacity={0.6} activeBar={<Rectangle fillOpacity={0.8} />}>
+					<LabelList position="top" offset={12} className="fill-foreground" fontSize={12} />
+				</Bar>
 				<XAxis dataKey="date" tickLine={false} axisLine={false} tickMargin={4} tickFormatter={tickFormatter} />
-				<ChartTooltip content={<ChartTooltipContent hideIndicator labelFormatter={labelFormatter} />} cursor={false} />
 			</BarChart>
 		</ChartContainer>
 	)

@@ -7,7 +7,18 @@ export const getDaysOfWeek = (monday?: Date) => {
 		const date = new Date(currentMonday)
 
 		date.setDate(date.getDate() + index)
-		date.setUTCHours(0, 0, 0, 0)
+
+		return date.toISOString()
+	})
+}
+
+export const getLastWeekPeriod = (monday?: Date) => {
+	const currentMonday = monday || getMondayOfCurrentWeek()
+
+	return Array.from({ length: 8 }, (_, index) => {
+		const date = new Date(currentMonday)
+
+		date.setDate(date.getDate() + index)
 
 		return date.toISOString()
 	})

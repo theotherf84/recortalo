@@ -3,6 +3,9 @@
 	"accessibility.screenReader.toggleColorTheme": "Cambiar tema de color",
 	"accessibility.screenReader.toggleNavigationMenu": "Alternar menú de navegación",
 	"accessibility.screenReader.toggleUserMenu": "Alternar menú del usuario",
+	"common.tabs.period.daily": "Diario",
+	"common.tabs.period.weekly": "Semanal",
+	"common.tabs.period.monthly": "Mensual",
 	"colorTheme.dark": "Oscuro",
 	"colorTheme.light": "Claro",
 	"colorTheme.system": "Sistema",
@@ -72,5 +75,10 @@
 	"tables.products.description": "La lista de todos sus productos",
 	"tables.products.title": "Productos",
 	"tables.subcategories.description": "La lista de todas sus subcategorías",
-	"tables.subcategories.title": "Subcategorías"
+	"tables.subcategories.title": "Subcategorías",
+	"widgets.revenue.data.empty": "Sin datos",
+	"widgets.revenue.description": "Mostrando el valor total de los pedidos para el período seleccionado",
+	"widgets.revenue.period.this.month": "Este mes",
+	"widgets.revenue.period.this.week": "Esta semana",
+	"widgets.revenue.title": "Ingresos"
 }

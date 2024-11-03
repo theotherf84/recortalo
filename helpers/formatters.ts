@@ -4,6 +4,8 @@ export const getFormattedLocaleCurrency = (amount: number) =>
 		currency: "ARS",
 	}).format(amount)
 
+export const getFormattedLocaleNumber = (amount: number) => new Intl.NumberFormat("es-AR").format(amount)
+
 export const getFormattedLocaleDate = (date: string) =>
 	new Date(date).toLocaleDateString("es-AR", {
 		timeZone: "UTC",

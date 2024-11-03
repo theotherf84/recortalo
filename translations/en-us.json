@@ -3,6 +3,9 @@
 	"accessibility.screenReader.toggleColorTheme": "Toggle color theme",
 	"accessibility.screenReader.toggleNavigationMenu": "Toggle navigation menu",
 	"accessibility.screenReader.toggleUserMenu": "Toggle user menu",
+	"common.tabs.period.daily": "Daily",
+	"common.tabs.period.weekly": "Weekly",
+	"common.tabs.period.monthly": "Monthly",
 	"colorTheme.dark": "Dark",
 	"colorTheme.light": "Light",
 	"colorTheme.system": "System",
@@ -28,7 +31,7 @@
 	"inputs.category.label": "Category",
 	"inputs.category.placeholder": "Select a category",
 	"inputs.client.label": "Client",
-	"inputs.client.message.notFound": "No clients found",
+	"inputs.client.message.data.empty": "No clients found",
 	"inputs.client.placeholder": "Select a client",
 	"inputs.cost.label": "Cost",
 	"inputs.date.label": "Date",
@@ -72,5 +75,10 @@
 	"tables.products.description": "The list of all your products",
 	"tables.products.title": "Products",
 	"tables.subcategories.description": "The list of all your subcategories",
-	"tables.subcategories.title": "Subcategories"
+	"tables.subcategories.title": "Subcategories",
+	"widgets.revenue.data.empty": "No data",
+	"widgets.revenue.description": "Showing total orders value for the selected period",
+	"widgets.revenue.period.this.month": "This month",
+	"widgets.revenue.period.this.week": "This week",
+	"widgets.revenue.title": "Revenue"
 }
