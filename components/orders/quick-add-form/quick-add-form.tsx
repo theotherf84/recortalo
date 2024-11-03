@@ -43,7 +43,7 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onClos
 
 	return (
 		<Form {...form}>
-			<form onSubmit={form.handleSubmit(handleOnSubmit)} className="flex flex-col gap-6 overflow-x-scroll">
+			<form onSubmit={form.handleSubmit(handleOnSubmit)} className="flex flex-col gap-6">
 				<div className="grid gap-2">
 					<FormField
 						control={form.control}
@@ -87,7 +87,7 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onClos
 								</FormLabel>
 								<Select onValueChange={field.onChange}>
 									<FormControl>
-										<SelectTrigger className="h-fit" aria-label={translation["inputs.employee.placeholder"]} id="employee">
+										<SelectTrigger className="focus:ring-0 h-fit" aria-label={translation["inputs.employee.placeholder"]} id="employee">
 											<SelectValue placeholder={translation["inputs.employee.placeholder"]} />
 										</SelectTrigger>
 									</FormControl>
@@ -187,7 +187,7 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onClos
 					/>
 				</div>
 				<div className="grid gap-2 pt-4">
-					<SubmitButton formState={form.formState}>{translation["forms.orders.add.submitButton"]}</SubmitButton>
+					<SubmitButton formState={form.formState}>{translation["forms.orders.quickAdd.sheet.button.submit"]}</SubmitButton>
 				</div>
 			</form>
 		</Form>

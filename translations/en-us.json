@@ -28,6 +28,7 @@
 	"inputs.category.label": "Category",
 	"inputs.category.placeholder": "Select a category",
 	"inputs.client.label": "Client",
+	"inputs.client.message.notFound": "No clients found",
 	"inputs.client.placeholder": "Select a client",
 	"inputs.cost.label": "Cost",
 	"inputs.date.label": "Date",

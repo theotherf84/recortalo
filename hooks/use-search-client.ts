@@ -19,7 +19,7 @@ export const useSearchClient = (): UseSearchClientResult => {
 	}
 
 	useEffect(() => {
-		const fetchResults = async () => {
+		const fetchClientsBySearchTerm = async () => {
 			if (debouncedQuery.length > 4) {
 				setLoading(true)
 
@@ -32,7 +32,7 @@ export const useSearchClient = (): UseSearchClientResult => {
 			}
 		}
 
-		fetchResults()
+		fetchClientsBySearchTerm()
 	}, [debouncedQuery])
 
 	return {

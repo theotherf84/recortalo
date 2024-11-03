@@ -16,7 +16,7 @@ export const ContentSheet = ({ children, subtitle, title, trigger, ...properties
 			<SheetTrigger asChild>
 				<Button>{trigger}</Button>
 			</SheetTrigger>
-			<SheetContent className="flex flex-col gap-6 w-full md:w-auto">
+			<SheetContent className="flex flex-col gap-6 w-full overflow-x-scroll">
 				<SheetHeader className="py-4">
 					<SheetTitle>{title}</SheetTitle>
 					<SheetDescription className="text-left text-muted-foreground">{subtitle}</SheetDescription>
