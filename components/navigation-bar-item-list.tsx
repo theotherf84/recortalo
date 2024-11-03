@@ -1,39 +1,38 @@
 "use client"
 
 import { TranslationContext } from "contexts/translation-context"
-import { mergeClassNames } from "helpers/merge-class-names"
 import Link from "next/link"
 import { useContext, useMemo } from "react"
 import { Button } from "shadcn/button"
 import type { NavigationBarItemListProperties } from "types/components"
 
 export const NavigationBarItemList = ({ isOnSidebar }: NavigationBarItemListProperties) => {
-	const transition = useContext(TranslationContext)
+	const translation = useContext(TranslationContext)
 
 	const items = useMemo(
 		() => [
 			{
-				label: transition["navigation.navigationBar.orders"],
+				label: translation["navigation.navigationBar.orders"],
 				path: "/orders",
 			},
 			{
-				label: transition["navigation.navigationBar.clients"],
+				label: translation["navigation.navigationBar.clients"],
 				path: "/clients",
 			},
 			{
-				label: transition["navigation.navigationBar.employees"],
+				label: translation["navigation.navigationBar.employees"],
 				path: "/employees",
 			},
 			{
-				label: transition["navigation.navigationBar.categories"],
+				label: translation["navigation.navigationBar.categories"],
 				path: "/categories",
 			},
 			{
-				label: transition["navigation.navigationBar.products"],
+				label: translation["navigation.navigationBar.products"],
 				path: "/products",
 			},
 		],
-		[transition],
+		[translation],
 	)
 
 	return items?.map(({ label, path }) => (
